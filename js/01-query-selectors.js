@@ -6,12 +6,14 @@ const magicBtn = document.querySelector('.js-magic-btn');
  *
  * Что возвращают?
  */
+magicBtn.addEventListener('click', () => {
+    const navItemEl = document.querySelector('.site-nav');
+console.log(navItemEl);
 
-const navEl = document.querySelector('.site-nav');
-console.log('navEl', navEl);
 
-const navLinksEl = document.querySelectorAll('.site-nav__link');
-console.log('navLinksEl', navLinksEl);
+const navLinksEl = navItemEl.querySelectorAll('.site-nav__link');
+    console.log(navLinksEl);
+})
 
 /*
  * Document.querySelector* и Element.querySelector*
