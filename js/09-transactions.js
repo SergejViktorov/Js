@@ -1,27 +1,18 @@
-import transactionHistory from './data/transactions.js';
+import transactions from './data/transactions.js'
 
-const makeTransactionTableRowMarkup = transaction => {
-  const { id, amount, date, business, type, name, account } = transaction;
+const makeTransactionMarkup = ({id, amount, date, business, type, name, account}) =>{
+  return `<tr>
+  <td>${id}</td>
+  <td>${amount}</td>
+  <td>${date}</td>
+  <td>${business}</td>
+  <td>${type}</td>
+  <td>${name}</td>
+  <td>${account}</td>
+</tr>`
+}
 
-  return `
-  <tr>
-    <td>${id}</td>
-    <td>${amount}</td>
-    <td>${date}</td>
-    <td>${business}</td>
-    <td>${type}</td>
-    <td>${name}</td>
-    <td>${account}</td>
-  </tr>
-  `;
-};
-
-console.log(transactionHistory);
+ 
 const tableEl = document.querySelector('.js-transaction-table');
-const transactionTableRowsMarkup = transactionHistory
-  .map(makeTransactionTableRowMarkup)
-  .join('');
-
-tableEl.insertAdjacentHTML('beforeend', transactionTableRowsMarkup);
-
-console.log(transactionTableRowsMarkup);
+ const makeTrans = transactions.map(makeTransactionMarkup).join('');
+ tableEl.insertAdjacentHTML('beforeend', makeTrans)
