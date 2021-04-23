@@ -27,3 +27,12 @@ button.appendChild(btnEl)
 /*
  * Пишем функцию для создания разметки колорпикера
  */
+const makeColorPickerOptions = options =>{return options.map(option => {
+  const btnEl = document.createElement('button');
+btnEl.type = 'button';
+btnEl.textContent = options.label;
+btnEl.style.width = '160px';
+btnEl.style.height = '40px';
+btnEl.style.marginTop = '20px'
+btnEl.style.backgroundColor = options.color
+})}
