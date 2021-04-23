@@ -3,7 +3,7 @@
  * http://fecore.net.ua/books/m5ph3r-javascript/module-07/dom-traversal.html
  */
 const navEl = document.querySelector('.site-nav');
+console.log(navEl)
 
-// const firtNavItemEl = navEl.querySelector('.site-nav__item');
-const firtNavItemEl = navEl.children;
-console.log(firtNavItemEl);
+const firstEl = navEl.firstElementChild.nextElementSibling;
+console.log(firstEl)

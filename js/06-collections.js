@@ -10,34 +10,20 @@ const colorPickerOptions = [
   { label: 'indigo', color: '#3F51B5' },
 ];
 
-const colorPickerContainerEl = document.querySelector('.js-color-picker');
+const options = colorPickerOptions[0]
 
-// const elements = colorPickerOptions.map(option => {
-//   const buttonEl = document.createElement('button');
-//   buttonEl.type = 'button';
-//   buttonEl.classList.add('color-picker__option');
-//   buttonEl.textContent = option.label;
-//   buttonEl.style.backgroundColor = option.color;
+const btnEl = document.createElement('button');
+btnEl.type = 'button';
+btnEl.textContent = options.label;
+btnEl.style.width = '160px';
+btnEl.style.height = '40px';
+btnEl.style.marginTop = '20px'
+btnEl.style.backgroundColor = options.color
+console.log(btnEl)
 
-//   return buttonEl;
-// });
-
-// console.log(elements);
+const button = document.querySelector('.color-picker');
+button.appendChild(btnEl)
 
 /*
  * Пишем функцию для создания разметки колорпикера
  */
-const makeColorPickerOptions = options => {
-  return options.map(option => {
-    const buttonEl = document.createElement('button');
-    buttonEl.type = 'button';
-    buttonEl.classList.add('color-picker__option');
-    buttonEl.textContent = option.label;
-    buttonEl.style.backgroundColor = option.color;
-
-    return buttonEl;
-  });
-};
-
-const elements = makeColorPickerOptions(colorPickerOptions);
-colorPickerContainerEl.append(...elements);
