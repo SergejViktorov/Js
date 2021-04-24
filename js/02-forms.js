@@ -8,16 +8,14 @@
 const form = document.querySelector('.js-register-form');
 
 form.addEventListener('submit', onFormSubmit);
+ function onFormSubmit(event){
+ event.preventDefault();
+// const formEl = event.currentTarget.elements;
 
-function onFormSubmit(event) {
-  event.preventDefault();
+// const mail = formEl.email.value;
+// const password = formEl.password.value;
+// console.log(mail, password)
 
-  const formData = new FormData(event.currentTarget);
-
-  console.log(formData);
-
-  formData.forEach((value, name) => {
-    console.log('onFormSubmit -> name', name);
-    console.log('onFormSubmit -> value', value);
-  });
+const formData = new FormData(event.currentTarget);
+console.log(formData)
 }
