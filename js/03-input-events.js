@@ -17,31 +17,21 @@ const refs = {
 // refs.input.addEventListener('focus', onInputFocus);
 // refs.input.addEventListener('blur', onInputBlur);
 // refs.input.addEventListener('change', onInputChange);
-// refs.input.addEventListener('input', onInputChange);
+refs.input.addEventListener('input', onInputChange);
+refs.input.addEventListener('blur', onInputBlur);
+refs.licenseCheckbox.addEventListener('change', onCheckbox);
+// refs.btn.addEventListener('');
 
-refs.input.addEventListener('input', onInputChange)
-
-function onInputChange(event){
-  if(refs.input.value ===''){
-   return refs.btn.lastElementChild.textContent = 'anonim'
-  }
-refs.btn.lastElementChild.textContent = event.currentTarget.value;
-};
-
-
-refs.input.addEventListener('focus', onImputFocus);
-refs.input.addEventListener('blur', onImputBlur);
-
-function onImputFocus (){
-  console.log('go')
-}
-function onImputBlur(){
-  console.log('no go')
+function onInputChange(e) {
+  console.log(e.currentTarget.value);
 }
 
+function onInputBlur(e) {
+  console.log(e.currentTarget.value);
+  refs.nameLabel.textContent = e.currentTarget.value;
+}
 
-refs.licenseCheckbox.addEventListener('change', onInputChangeEl);
-function onInputChangeEl(event){
-  console.log(event.currentTarget.checked);
-  refs.btn.disabled = !event.currentTarget.checked
+function onCheckbox(e) {
+  refs.btn.disabled = !e.currentTarget.checked;
+  console.log(e.currentTarget.checked);
 }

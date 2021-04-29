@@ -13,31 +13,28 @@ const refs = {
 };
 
 refs.openModalBtn.addEventListener('click', onOpenModal);
+const body = document.querySelector('body');
 refs.closeModalBtn.addEventListener('click', onCloseModal);
-refs.backdrop.addEventListener('click', onBackdropClick);
+refs.backdrop.addEventListener('click', onCloseBackdrop);
 
 function onOpenModal() {
-  window.addEventListener('keydown', onEscKeyPress);
-  document.body.classList.add('show-modal');
+  window.addEventListener('keydown', onEcsapeCloseModal);
+  body.classList.add('show-modal');
 }
 
 function onCloseModal() {
-  window.removeEventListener('keydown', onEscKeyPress);
-  document.body.classList.remove('show-modal');
+  window.removeEventListener('keydown', onEcsapeCloseModal);
+  body.classList.remove('show-modal');
 }
 
-function onBackdropClick(event) {
-  if (event.currentTarget === event.target) {
-    console.log('Кликнули именно в бекдроп!!!!');
+function onCloseBackdrop(e) {
+  if (e.target === e.currentTarget) {
     onCloseModal();
   }
 }
 
-function onEscKeyPress(event) {
-  const ESC_KEY_CODE = 'Escape';
-  const isEscKey = event.code === ESC_KEY_CODE;
-
-  if (isEscKey) {
+function onEcsapeCloseModal(e) {
+  if (e.code === 'Escape') {
     onCloseModal();
   }
 }

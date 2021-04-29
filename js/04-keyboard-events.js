@@ -8,15 +8,13 @@ const refs = {
   output: document.querySelector('.js-output'),
   clearBtn: document.querySelector('.js-clear'),
 };
-
 window.addEventListener('keypress', onKeypress);
 refs.clearBtn.addEventListener('click', onClearOutput);
 
-function onKeypress(event) {
-  // console.log('event.key: ', event.key);
-  // console.log('event.code: ', event.code);
-
-  refs.output.textContent += event.key;
+function onKeypress(e) {
+  console.log(e.key);
+  console.log(e.code);
+  refs.output.textContent += e.key;
 }
 
 function onClearOutput() {
